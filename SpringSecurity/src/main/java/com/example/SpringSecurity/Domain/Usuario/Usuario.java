@@ -26,6 +26,12 @@ public class Usuario implements UserDetails {
     private String senha;
     private Role permisao;
 
+    public Usuario(RequestUsuario dados) {
+        this.login = dados.login();
+        this.senha = dados.senha();
+        this.permisao = dados.permisao();
+    }
+
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
